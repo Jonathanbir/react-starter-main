@@ -1,4 +1,4 @@
-import counterReducer from "./counter/slice";
+import counterReducer from './counter/slice';
 
 const reducers = {
   counter: counterReducer,

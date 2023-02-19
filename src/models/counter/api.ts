@@ -1,4 +1,4 @@
-import { wrapFetch } from "../../util/api";
+import { wrapFetch } from '../../util/api';
 
 // A mock function to mimic making an async request for data
 // export function fetchCount(amount = 1) {
@@ -9,7 +9,7 @@ import { wrapFetch } from "../../util/api";
 
 export const fetchCount = async (amount = 1) => {
   try {
-    const data = await wrapFetch<{ data: number }>("members");
+    const data = await wrapFetch<{ data: number }>('members');
     return data;
   } catch (error) {
     return { data: amount };

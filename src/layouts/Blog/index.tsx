@@ -1,7 +1,5 @@
-import React from "react";
+import React from 'react';
 
-const Blog = () => {
-  return <div>I'm Blog layout.</div>;
-};
+const Blog = () => <div>I'm Blog layout.</div>;
 
 export default Blog;
