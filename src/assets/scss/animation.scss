@@ -1,0 +1,59 @@
+@keyframes showDropList {
+  from {
+    width: 0px;
+    height: 0px;
+  }
+
+  to {
+   width: 250px;
+   height: 300px;
+ }
+}
+
+
+@keyframes hideDropList {
+  from {
+    width: 250px;
+    height: 300px;
+  }
+
+  to {
+   width: 0px;
+   height: 0px;
+ }
+}
+
+.collapse-show {
+  &-enter {
+    display: block;
+    max-height: 0;
+  }
+
+  &-enter-active {
+    display: block;
+    opacity: 1;
+    transition: max-height 400ms ease-in-out, opacity 400ms ease-in-out;
+  }
+
+  &-enter-done {
+    display: block;
+    opacity: 1;
+  }
+
+  &-exit {
+    display: block;
+    opacity: 1;
+  }
+
+  &-exit-active {
+    display: block;
+    opacity: 0;
+    max-height: 0;
+    transition: max-height 400ms ease-in-out, opacity 400ms ease-in-out;
+  }
+
+  &-exit-done {
+    opacity: 0;
+    display: none;
+  }
+}

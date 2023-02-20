@@ -1,0 +1,95 @@
+// .sample {
+//   &-enter {
+      //剛進入
+//   }
+
+//   &-enter-active {
+        //進入中
+//   }
+
+//   &-enter-done {
+//進入完成
+//   }
+
+//   &-exit {
+//準備退出
+//   }
+
+//   &-exit-active {
+//退出中
+//   }
+// }
+
+.content-left-slide-in {
+  &-enter {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  
+  &-enter-active {
+    transition: all 400ms ease-in;
+    opacity: 1;
+    transform: translateX(0%);
+  }
+  
+  &-enter-done {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+  
+  &-exit {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+  
+  &-exit-active {
+    transition: all 400ms ease-out;
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+.opcaty-show-in {
+  &-enter {
+    opacity: 0;
+  }
+  
+  &-enter-active {
+    transition: all 400ms ease-in;
+    opacity: 1;
+  }
+  
+  &-enter-done {
+    opacity: 1;
+  }
+  
+  &-exit {
+    opacity: 1;
+  }
+  
+  &-exit-active {
+    transition: all 400ms ease-out;
+    opacity: 0;
+  }
+}
+
+.fade-enter, .fade-enter .btn{
+  opacity: 0;
+  transform: translateX(100%);
+}
+.fade-enter-active, .fade-enter-active .btn{
+  opacity: 1;
+  transform: translateX(0%);
+}
+.fade-exit, .fade-exit .btn{
+  opacity: 1;
+  transform: translateX(0%);
+}
+.fade-exit-active, .fade-exit-active .btn{
+  opacity: 0;
+  transform: translateX(-100%);
+}
+.fade-enter-active,
+.fade-exit-active, .fade-enter-active .btn, .fade-exit-active .btn{
+  transition: opacity 500ms, transform 500ms;
+}

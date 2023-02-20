@@ -1,0 +1,85 @@
+@import './size';
+@import './z-index';
+@import './color';
+@import './font-size';
+
+@mixin scrollBar {
+  ::-webkit-scrollbar {
+    height: 7px;
+    width: 7px;
+
+  }
+
+  ::-webkit-scrollbar-track-piece {
+
+    background: transparent;
+
+  }
+
+  ::-webkit-scrollbar-thumb {
+
+    border-radius: 4px;
+
+    background-color: rgba(0, 0, 0, 0.2);
+
+  }
+
+  ::-webkit-scrollbar-track {
+
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+
+  }
+}
+
+
+
+
+
+
+@mixin textEllipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin clickable {
+  cursor: pointer;
+  transition: filter 0.2s ease-in-out;
+
+  &:hover {
+    filter: brightness(0.95);
+  }
+}
+
+
+@mixin btn_1 {
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    // opacity: .9;
+    filter: brightness(1.1);
+  }
+
+  &__text {
+    color: $dark-4;
+    font-size: $font-content-title-size;
+  }
+  &__icon:hover{
+    transform: scale(1.01,1.01);
+  }
+  &__action {
+    height: 30px;
+    color: $dark-sky-blue-2;
+    font-size: $font-content-title-size;
+    
+  }
+
+  &__input {
+    visibility: hidden;
+    width: 1px;
+  }
+}

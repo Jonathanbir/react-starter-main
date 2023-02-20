@@ -1,0 +1,433 @@
+@import "./variable/color.scss";
+
+$modal-header-height: 55px;
+$modal-footer-height: 70px;
+$modal-radius: 0.75rem;
+
+// url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3e%3cpath fill=%27none%27 stroke=%27%23343a40%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%272%27 d=%27M2 5l6 6 6-6%27/%3e%3c/svg%3e")
+// url("data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27><path fill=%27none%27 stroke=%27#6c757d%27%20stroke-linecap=%27round%27%20stroke-linejoin=%27round%27%20stroke-width=%272%27%20d=%27M2%205l6%206%206-6%27/%3E%3C/svg%3E") !important
+// 覆蓋 bootstrap select 的樣式
+.form-select {
+  background-image: escape-svg($form-select-indicator) !important;
+}
+
+// 覆蓋 bootstrap form control 的樣式
+input.form-control {
+  &.error {
+    border: 1px solid $red;
+  }
+
+  &.success {
+  }
+}
+
+textarea.form-control {
+  resize: none;
+
+  &.can-size {
+    height: 150px;
+    resize: vertical;
+    max-width: 100%;
+  }
+}
+
+//Layout
+.justify-content-center {
+  justify-content: center;
+}
+
+//Modal
+
+.modal {
+  overflow-y: hidden !important;
+  // &:not(:last-of-type) {
+  //   filter:brightness(.7);
+  // }
+}
+
+.modal {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+
+  @include mobile {
+  }
+
+  @include pad {
+  }
+
+  @include pc {
+    border-radius: 8px;
+    // max-height: calc(100vh - 50px);
+  }
+
+  @include pc-large {
+    width: 1360px;
+    // max-height: calc(100vh - 50px);
+  }
+}
+
+.modal-header {
+  height: $modal-header-height;
+  position: relative;
+
+  &.sm-size {
+  }
+
+  &.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &.no-underline {
+    border-bottom: none;
+  }
+}
+
+.modal-body {
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  max-height: calc(100vh - $modal-footer-height);
+  background-color: $white;
+  border-radius: $modal-radius;
+
+  @include pc {
+    max-height: calc(
+      100vh - 3.5rem - $modal-header-height - $modal-footer-height
+    );
+  }
+
+  &.small-size {
+    height: calc(100vh - $modal-header-height - $modal-footer-height - 3.5rem);
+  }
+}
+
+// 覆蓋 bootstrap 的主要色彩分配
+$primary: $dark-sky-blue;
+$secondary: #e0eb4e;
+$success: #5cd351;
+$info: #85b4f1;
+$warning: #fce515;
+$danger: #e04141;
+$light: #888888;
+$dark: #2e2d2d;
+
+@import "~bootstrap/scss/bootstrap";
+
+.btn-primary {
+  color: #fff !important;
+}
+
+.btn-outline-primary {
+  &:hover {
+    color: #fff !important;
+  }
+}
+
+.row {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.row > * {
+  // padding-right: 0px;
+  // padding-left: 0px;
+}
+
+button.btn {
+  min-width: 120px;
+  height: 40px;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+.position-relative {
+  position: relative;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+.mr-1 {
+  margin-right: 0.25rem;
+}
+
+.form-group {
+  transition: all 0.5s ease-in-out;
+
+  &.hide {
+    opacity: 0;
+    max-height: 0px !important;
+    overflow-y: hidden !important;
+    margin: 0px !important;
+  }
+
+  &.show {
+    max-height: 1000px;
+  }
+}
+
+input.form-control {
+  &::placeholder {
+    color: $warm-grey;
+  }
+
+  caret-color: $dark-sky-blue;
+}
+
+.modal-footer {
+  min-height: $modal-footer-height;
+  justify-content: center;
+  border-top: none;
+  z-index: z("modal", "footer");
+
+  &.full-size {
+    @include pc-largeX {
+      padding-right: calc(100% - $process-main-content-xxl);
+    }
+  }
+}
+
+.modal {
+  &.no-min {
+    .modal-content {
+      min-height: 100px;
+    }
+  }
+}
+
+.modal-content {
+  border-radius: $modal-radius;
+}
+
+.modal-xl {
+  &.modal-fullscreen-xl-down {
+    width: 100vw;
+
+    @include pc-largeX {
+      width: 1600px !important;
+    }
+  }
+
+  @include pc {
+    width: 800px;
+  }
+
+  @include pc-largeX {
+    max-width: 1650px;
+    width: 1650px !important;
+  }
+}
+
+.modal-xxxl-full-size {
+  .modal-body {
+    padding-bottom: 0px !important;
+    height: calc(100vh - $modal-footer-height);
+  }
+
+  @include pc {
+    .modal-body {
+      max-height: calc(
+        100vh - 3.5rem - $modal-header-height - $modal-footer-height
+      );
+    }
+  }
+
+  @include pc-largeX {
+    .modal-footer {
+      padding-right: calc(100% - $process-main-content-xxl);
+    }
+  }
+}
+
+// .modal-process {
+//   .modal-footer {
+//     background-image: linear-gradient(to bottom, rgba(253, 252, 251, 0), $white-two 50%);
+//     position: absolute;
+//     height: $modal-footer-height;
+//     bottom: 0px;
+//     width: 100%;
+//     border-bottom-left-radius: $modal-radius;
+//     border-bottom-right-radius: $modal-radius;
+//   }
+
+//   .modal-body {
+//     background-color: $white-two;
+
+//     @include pc {
+//       background-color: $white;
+//     }
+//   }
+// }
+
+.modal-process-content {
+  &.modal-dialog {
+    @include pc {
+      min-height: calc(100vh - 1rem);
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .modal-footer {
+    background-image: linear-gradient(
+      to bottom,
+      rgba(253, 252, 251, 0),
+      $white-two 50%
+    );
+    position: absolute;
+    min-height: $modal-footer-height;
+    bottom: 0px;
+    width: 100%;
+    border-bottom-left-radius: $modal-radius;
+    border-bottom-right-radius: $modal-radius;
+  }
+
+  .modal-content {
+    @include pc {
+      background-color: $white;
+      max-height: calc(100vh - 1rem);
+    }
+  }
+
+  .modal-body {
+    padding-top: 4px;
+    background-color: $white-two;
+
+    @include pc {
+      background-color: $white;
+      max-height: calc(100vh - 1rem - $modal-header-height);
+    }
+  }
+}
+
+.progress {
+  height: 8px;
+}
+
+.btn-close {
+  background: url("../image/icons/ic-close-panel.svg");
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  margin: 0px;
+}
+
+.was-validated .input-group .form-control:invalid,
+.input-group .form-control.is-invalid,
+.was-validated .input-group .form-select:invalid,
+.input-group .form-select.is-invalid,
+.was-validated .input-group .form-control:valid,
+.input-group .form-control.is-valid,
+.was-validated .input-group .form-select:valid,
+.input-group .form-select.is-valid {
+  background-image: none;
+  padding-right: 0em;
+  z-index: auto;
+}
+
+.offcanvas-backdrop {
+  z-index: 1070;
+}
+
+@include InMobileDevice {
+  .mobile-device-bottom-modal.modal-dialog {
+    width: 100vw;
+    max-width: none;
+    height: calc(100% - 1.75rem);
+    margin: 1.75rem 0px 0px 0px;
+
+    .modal-content {
+      height: 100%;
+      border-radius: $modal-radius $modal-radius 0px 0px;
+    }
+  }
+}
+
+.form-cus-group {
+  padding: 9px 14px;
+  position: relative;
+}
+
+.form-cus-group-icon {
+  .form-control {
+    padding-right: 35px;
+  }
+}
+
+input {
+  &.form-control {
+    border: 1px solid $light-grey;
+    background-color: $white-five;
+    color: $black;
+
+    &:focus {
+      background-color: $white-five;
+      color: $black;
+    }
+  }
+}
+
+div {
+  &.form-control {
+    border: 1px solid $light-grey;
+    background-color: $white-five;
+    color: $black;
+
+    &:focus {
+      background-color: $white-five;
+      color: $black;
+    }
+  }
+}
+
+textarea {
+  &.form-control {
+    border: 1px solid $light-grey;
+    background-color: $white-five;
+    color: $black;
+
+    &:focus {
+      background-color: $white-five;
+      color: $black;
+    }
+  }
+}
+
+select {
+  &.form-select {
+    border: 1px solid $light-grey;
+    background-color: $white-five;
+    color: $black;
+  }
+}
+
+.font-bold {
+  font-weight: bold !important;
+}
+
+.form-check-inline {
+  &.mid {
+    .form-check-input {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+//remove bootstrap's valid border color
+// .was-validated .form-control:valid, .form-control.is-valid {
+//   border-color: #e8e5dd;
+//   &:focus {
+//       border-color: #e8e5dd !important;
+//       // box-shadow: none;
+//   }
+// }

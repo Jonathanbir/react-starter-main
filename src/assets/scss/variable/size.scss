@@ -1,0 +1,55 @@
+$grid-breakpoints: (xs: 360px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1440px,
+  xxxl: 1700px,
+);
+
+$head-hight: 70px; // 上面高度
+
+@mixin pc-largeX{
+  @media (min-width: map-get($grid-breakpoints, xxxl)) {
+    @content;
+  }
+}
+
+@mixin pc-large{
+  @media (min-width: map-get($grid-breakpoints, xxl)) {
+    @content;
+  }
+}
+
+@mixin pc{
+  @media (min-width: map-get($grid-breakpoints, lg)) {
+    @content;
+  }
+}
+
+@mixin pad{
+  @media (min-width: map-get($grid-breakpoints, md)) {
+    @content;
+  }
+}
+
+@mixin mobile-large{
+  @media (min-width: map-get($grid-breakpoints, sm)) {
+    @content;
+  }
+}
+
+@mixin mobile{
+  @media (min-width: map-get($grid-breakpoints, xs)) {
+    @content;
+  }
+}
+
+@mixin InMobileDevice{
+  @media (max-width: map-get($grid-breakpoints, md)) {
+    @content;
+  }
+}
+
+$filter-side: 200px;
+$process-main-content-xxl: 60%;

@@ -1,0 +1,205 @@
+//審核視窗
+
+@mixin audit-detail {
+  padding: 16px;
+}
+
+$audit-modal-padding-bottom: 70px;
+$audit-modal-padding-bottom-pc-up: 16px;
+$audit-modal-pagination-content-height: 50px;
+
+.audit-modal {
+
+  &__modal-body {
+    padding-bottom: 0px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important; 
+    @include pc {
+      padding-bottom: $audit-modal-padding-bottom-pc-up !important;
+    }
+  }
+
+  &__main-content {
+    overflow-x: hidden;
+    width: 100%;
+    min-height: calc(100% - $audit-modal-pagination-content-height);
+  }
+
+  &__detail-wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    transition: all 0.2s ease-in;
+    margin: 0px;
+
+    &.signProcess {
+      transform: translateX(-100%);
+      @include pc-large {
+        transform: translateX(0%);
+      }
+    }
+
+    &.appendix {
+      transform: translateX(-200%);
+      @include pc-large {
+        transform: translateX(0%);
+      }
+    }
+  }
+
+  &__content-head {
+
+  }
+
+  &__description-trigger {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: $font-smaller-size;
+    color: $dark-4;
+    cursor: pointer;
+
+    &:hover {
+      color: $dark-3;
+    }
+  }
+
+  &__content-title {
+    font-size: $font-content-title-size;
+    font-weight: bold;
+    text-align: center;  
+    padding-bottom: 1rem;
+
+    @include pc {
+      text-align: left;  
+    }
+    
+    @include pc-large {
+      
+    }
+  }
+
+  //切換頁簽
+  &__pagination-tab-content {
+    padding: 0px 30px;
+    display: none;
+    cursor: pointer;
+    
+    @include pc {
+      display: flex;
+      .page-tab {
+        margin-right: .5rem;
+      }
+    }
+    
+    @include pc-large {
+      display: none;
+    }
+  }
+
+  &__detail {
+    &--main {
+      @include audit-detail;
+    }
+
+    &--signProcess {
+      @include audit-detail;
+    }
+
+    &--appendix {
+      @include audit-detail;
+    }
+  }
+
+  &__content-wrapper {
+    width: 100%;
+    display: none;
+
+    &.active {
+      display: block;
+    }
+
+    @include pc-large {
+      display: block;
+    }
+  }
+
+  &__appendix-list {
+    .appendix-block__container {
+      &:not(:last-child) {
+        margin-bottom: .5rem;
+      }
+    }
+  }
+
+  &__mobile-pagination-wrapper {
+    position: sticky;
+    width: 100%;
+    height: 50px;
+    bottom: 0px;
+    left: 0px;
+  }
+
+  &__mobile-pagination {
+    position: relative;
+    width: 100%;
+    height: $audit-modal-pagination-content-height;
+  }
+
+  &__mobile-pagination-content {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    padding-left: 55px;
+    height: $audit-modal-pagination-content-height;
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: $dark-4;
+  }
+
+  &__audit-pagination-tag {
+    position: relative;
+    flex: 1;
+    background-color: $dark-4;
+    color: white;
+    transition: background-color .2s ease-in;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: z("modal","auditPagination");
+
+    &.active {
+      background-color: $dark-3;
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent transparent $dark-3 transparent;
+      }
+    }
+  }
+
+  &__mobile-pagination-icon {
+    color: white;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 55px;
+    height: $audit-modal-pagination-content-height;
+    border-radius: 0px 25px 25px 0px;
+    background-color: $dark-4;
+    z-index: z("modal","auditInfoIcon"); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include pc {
+      display: none;
+    }
+  }
+}

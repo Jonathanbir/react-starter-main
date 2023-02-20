@@ -1,0 +1,43 @@
+.icon {
+  width: 36px;
+  height: 36px;
+  background-repeat: no-repeat;
+}
+
+.icon-search {
+  background-image: url(../image/icons/icon-search.png);
+}
+
+.icon-search-s {
+  width: 24px;
+  height: 24px;
+  background-image: url(../image/icons/icon-search.png);
+  background-size: contain;
+}
+
+.icon-information {
+  width: 24px;
+  height: 24px;
+  background-image: url(../image/icons/icon_info.png);
+  background-size: contain;
+  
+}
+
+.icon-back {
+  width: 24px;
+  height: 24px;
+  background-image: url(../image/icons/icon_back.png);
+  background-size: contain;
+}
+
+.color-icon {
+  g {
+    fill: currentColor;
+    stroke: currentColor;
+  }
+
+  path {
+    fill: currentColor;
+    stroke: currentColor;
+  }
+}

@@ -1,0 +1,63 @@
+$z-layers: (
+  "task-list-block-title": 1001,
+  "header": 1004,
+  "side-content": 1005,
+  "main-content-filter": 1010,
+  "add-order-icon": 1015,
+  "main-bottom-tip": 1018,
+  "modal": (
+    "mask": 1020,
+    "header": 1050,
+    "footer": 1050,
+    "auditPagination": 1100,
+    "auditInfoIcon": 1110,
+    "selectItem": 1120,
+    "closeBtn": 1150,
+  ),
+  "selectContent": 1200,
+  "panel": 1500,
+  "searchIcon": 1600,
+  "sideMenu": 100,
+  "datepicker": 50,
+  "default": 1,
+);
+
+@function map-has-nested-keys($map, $keys...) {
+  @each $key in $keys {
+    @if not map-has-key($map, $key) {
+      @return false;
+    }
+
+    $map: map-get($map, $key);
+  }
+
+  @return true;
+}
+
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+
+  @return $map;
+}
+
+@function z($layers...) {
+  @if not map-has-nested-keys($z-layers, $layers...) {
+    @warn "No layer found for `#{inspect($layers...)}` in $z-layers map. Property omitted.";
+  }
+
+  @return map-deep-get($z-layers, $layers...);
+}
+
+// 多視窗的 z-index 關係
+@for $i from 1 through 10 {
+  $zIndexBackdrop:  #{1045 + (5 * $i)};
+  $zIndexContent:  #{1045 + (5 * $i) + 2};
+  .modal-backdrop.show:nth-of-type(#{$i}) {
+    z-index: $zIndexBackdrop;
+  }
+  div[role="dialog"][aria-modal="true"]:nth-of-type(#{$i}) {
+    z-index: $zIndexContent;
+  }
+}
