@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from '../../assets/images/logo.svg';
 import Counter from '../../components/molecules/Counter';
+import { IconButton } from '../../components/atoms/IconButton';
 import './index.scss';
 
 const App = () => (
@@ -49,6 +50,9 @@ const App = () => (
           React Redux
         </a>
       </span>
+      <IconButton className="icon-button">
+        <p>這是個按鈕</p>
+      </IconButton>
     </header>
   </div>
 );

@@ -27,6 +27,7 @@ module.exports = {
     'react/jsx-one-expression-per-line': 'off',
     'react/tsx-indent': 'off',
     'react/function-component-definition': 'off',
+    'react/react-in-jsx-scope': 'off', //在JSX中引入 import React from 'react';
     'no-console': 'off',
     '@typescript-eslint/indent': 'off',
     indent: 'off',
